@@ -33,6 +33,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     data: function () {
       return {
@@ -42,7 +44,19 @@
     },
     methods: {
       excecuteShellScript: function () {
-        console.log(this.argument1, this.argument2)
+        const query = {
+          arguments: {
+            argument1: this.argument1,
+            argument2: this.argument2
+          }
+        }
+        axios.patch('http://192.168.3.7:3001/api/image_scrayping', query)
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       }
     }
   }

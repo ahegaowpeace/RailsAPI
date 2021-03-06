@@ -1,8 +1,8 @@
-class Api
-  class Script
-    class ImageScraypingsController < ActionController::Api
+module Api
+  module Script
+    class ImageScraypingsController < ActionController::API
       def update
-        p 'hoge'
+        p params['arguments']['argument1']
       end
     end
   end
