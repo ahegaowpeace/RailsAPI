@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    class="main"
+  >
     <v-tabs
       fixed-tabs
       background-color="indigo"
@@ -35,3 +37,9 @@ export default {
   }),
 };
 </script>
+
+<style>
+  .main {
+    padding: 20px;
+  }
+</style>
