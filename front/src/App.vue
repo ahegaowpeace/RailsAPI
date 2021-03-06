@@ -4,11 +4,11 @@
       fixed-tabs
       background-color="indigo"
     >
-      <v-tab>
-        <router-link to="/shell">Shell</router-link>
+      <v-tab to="/shell">
+        Shell
       </v-tab>
-      <v-tab>
-        <router-link to="/rabbit">Rabbit</router-link>
+      <v-tab to="/rabbit">
+        Rabbit
       </v-tab>
       <v-tab>
         Other

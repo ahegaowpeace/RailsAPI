@@ -1,6 +1,6 @@
 <template>
   <div>
-    hoge
+    moge
   </div>
 </template>
 
