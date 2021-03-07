@@ -9,7 +9,8 @@
       >
         <v-text-field
           v-model="argument1"
-          label="引数1"
+          label="ファイル名"
+          placeholder="example"
         />
       </v-col>
       <v-col
@@ -18,7 +19,18 @@
       >
         <v-text-field
           v-model="argument2"
-          label="引数2"
+          label="BASE URL"
+          placeholder="https://nhentai.net/g/350336/"
+        />
+      </v-col>
+      <v-col
+        cols="6"
+        md="2"
+      >
+        <v-text-field
+          v-model="argument3"
+          label="ページ数"
+          placeholder="20"
         />
       </v-col>
     </v-row>
@@ -39,7 +51,8 @@
     data: function () {
       return {
         argument1: null,
-        argument2: null
+        argument2: null,
+        argument3: null
       }
     },
     methods: {
@@ -47,7 +60,8 @@
         const query = {
           arguments: {
             argument1: this.argument1,
-            argument2: this.argument2
+            argument2: this.argument2,
+            argument3: this.argument3
           }
         }
         axios.patch('http://192.168.3.7:3001/api/image_scrayping', query)

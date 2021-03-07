@@ -1,13 +1,14 @@
 require 'open-uri'
 require 'nokogiri'
+require 'fileutils'
 
 module Scripts
   class ImageScrayping
     def get_image(file_name, base_url, page_num)
-      Dir.mkdir("app/models/scripts/contents/#{file_name}")
+      FileUtils.mkdir_p("app/models/scripts/contents/#{file_name}")
 
 
-      page_num.times do |n|
+      page_num.to_i.times do |n|
         n += 1
         html = URI.open("#{base_url}#{n}").read
         doc = Nokogiri::HTML.parse(html)
