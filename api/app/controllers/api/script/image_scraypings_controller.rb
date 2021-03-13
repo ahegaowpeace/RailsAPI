@@ -6,7 +6,7 @@ module Api
       def update
         target_image_params
         ims = Scripts::ImageScrayping.new
-        ims.get_image(@file_name, @base_url, @page_num)
+        ims.get_image(@file_name, @base_url, @page_num) # ステータスからは基本エラー判別難しそう
       end
 
       private

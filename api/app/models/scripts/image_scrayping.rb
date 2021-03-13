@@ -16,7 +16,6 @@ module Scripts
         img_src = doc2.attribute('src')
         download_image(file_name, n, img_src)
       end
-      true
     end
     # rubocop:enable Security/Open
 
