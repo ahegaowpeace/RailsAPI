@@ -12,9 +12,9 @@ module Api
       private
 
       def target_image_params
-        @file_name = params['arguments']['argument1']
-        @base_url = params['arguments']['argument2']
-        @page_num = params['arguments']['argument3']
+        @file_name = params['arguments']['file_name']
+        @base_url = params['arguments']['base_url']
+        @page_num = params['arguments']['page_num']
       end
     end
   end
