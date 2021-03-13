@@ -7,7 +7,7 @@ module Scripts
     def get_image(file_name, base_url, page_num)
       FileUtils.mkdir_p("app/models/scripts/contents/#{file_name}")
 
-
+      # rubocop:disable Security/Open
       page_num.to_i.times do |n|
         n += 1
         html = URI.open("#{base_url}#{n}").read
@@ -19,6 +19,7 @@ module Scripts
           f.puts URI.open(img_src).read
         end
       end
+      # rubocop:enable Security/Open
     end
   end
 end
