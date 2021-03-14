@@ -41,6 +41,13 @@
     >
       EXECUTE
     </v-btn>
+    <v-btn
+      color="primary"
+      dark
+      @click="testDispatch"
+    >
+      てすと
+    </v-btn>
   </v-form>
 </template>
 
@@ -71,6 +78,13 @@
           .catch((error) => {
             console.log(error)
           })
+      },
+      testDispatch: function () {
+        const payload = {
+          status: 200,
+          message: 'Success'
+        }
+        this.$store.dispatch('SystemMessageStore/createMessage', payload)
       }
     }
   }

@@ -2,6 +2,7 @@
   <v-snackbar
     v-model="display"
     top
+    color="success"
   >
     {{ text }}
       <v-btn
