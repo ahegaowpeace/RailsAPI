@@ -3,7 +3,17 @@
     v-model="display"
     top
   >
-    hoge
+    {{ text }}
+      <v-btn
+        color="white"
+        icon
+        v-bind="attrs"
+        @click="closeMessage"
+      >
+        <v-icon>
+          mdi-close
+        </v-icon>
+      </v-btn>
   </v-snackbar>
 </template>
 
@@ -18,6 +28,11 @@
         get() {
           return this.$store.state.SystemMessageStore.display
         }
+      }
+    },
+    methods: {
+      closeMessage () {
+        return this.$store.dispatch({type: 'SystemMessageStore/destroyMessage'})
       }
     }
   }

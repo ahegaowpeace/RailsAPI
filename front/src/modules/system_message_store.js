@@ -11,6 +11,16 @@ const SystemMessageStore = {
     }
   },
   mutations: {
+    destroy (state) {
+      state.text = ''
+      state.color = ''
+      state.display = false
+    }
+  },
+  actions: {
+    destroyMessage (context) {
+      context.commit('destroy')
+    }
   }
 }
 
