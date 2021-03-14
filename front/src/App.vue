@@ -2,6 +2,7 @@
   <div
     class="main"
   >
+    <toaster />
     <v-tabs
       fixed-tabs
       background-color="indigo"
@@ -29,11 +30,14 @@
 </template>
 
 <script>
+import Toaster from './components/Toaster'
+
 export default {
   name: 'App',
-
+  components: {
+    Toaster
+  },
   data: () => ({
-    //
   }),
 };
 </script>
