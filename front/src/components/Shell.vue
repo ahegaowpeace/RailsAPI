@@ -41,13 +41,6 @@
     >
       EXECUTE
     </v-btn>
-    <v-btn
-      color="primary"
-      dark
-      @click="testDispatch"
-    >
-      てすと
-    </v-btn>
   </v-form>
 </template>
 
@@ -64,6 +57,12 @@
     },
     methods: {
       excecuteShellScript: function () {
+        const payload = {
+          status: 199,
+          message: 'Start!'
+        }
+        this.$store.dispatch('SystemMessageStore/createMessage', payload)
+
         const query = {
           arguments: {
             file_name: this.fileName,
@@ -73,19 +72,17 @@
         }
         axios.patch('http://192.168.3.7:3001/api/image_scrayping', query)
           .then((response) => {
+            const payload = {
+              status: response.status,
+              message: 'Success'
+            }
+            this.$store.dispatch('SystemMessageStore/createMessage', payload)
             console.log(response);
           })
           .catch((error) => {
             console.log(error)
           })
       },
-      testDispatch: function () {
-        const payload = {
-          status: 200,
-          message: 'Success'
-        }
-        this.$store.dispatch('SystemMessageStore/createMessage', payload)
-      }
     }
   }
 </script>

@@ -2,13 +2,13 @@
   <v-snackbar
     v-model="display"
     top
-    color="success"
+    :color="color"
+    timeout="300000"
   >
     {{ text }}
       <v-btn
         color="white"
         icon
-        v-bind="attrs"
         @click="closeMessage"
       >
         <v-icon>
@@ -28,6 +28,9 @@
       display: {
         get() {
           return this.$store.state.SystemMessageStore.display
+        },
+        set() {
+          return this.$store.dispatch({type: 'SystemMessageStore/destroyMessage'})
         }
       }
     },

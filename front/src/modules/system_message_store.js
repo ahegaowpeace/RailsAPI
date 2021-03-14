@@ -33,9 +33,14 @@ const SystemMessageStore = {
 }
 
 const responseConverter = (status, message) => {
-  if (status == 200) {
+  if (status == 200 || status == 204) {
     return {
       color: 'success',
+      text: message
+    }
+  } else if (status == 199) {
+    return {
+      color: 'warning',
       text: message
     }
   } else {
