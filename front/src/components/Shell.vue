@@ -1,11 +1,11 @@
 <template>
-  <v-form>
-    <v-row
-      class="arg-row"
-    >
+  <v-form
+    class="pa-5"
+  >
+    <v-row>
       <v-col
         cols="6"
-        md="2"
+        md="4"
       >
         <v-text-field
           v-model="fileName"
@@ -15,7 +15,7 @@
       </v-col>
       <v-col
         cols="6"
-        md="2"
+        md="4"
       >
         <v-text-field
           v-model="baseUrl"
@@ -25,7 +25,7 @@
       </v-col>
       <v-col
         cols="6"
-        md="2"
+        md="4"
       >
         <v-text-field
           v-model="pageNum"
@@ -89,9 +89,3 @@
     }
   }
 </script>
-
-<style>
-  .arg-row {
-    margin: 0 auto;
-  }
-</style>

@@ -1,32 +1,31 @@
 <template>
-  <div
-    class="main"
-  >
-    <toaster />
-    <v-tabs
-      fixed-tabs
-      background-color="indigo"
-    >
-      <v-tab to="/shell">
-        Shell
-      </v-tab>
-      <v-tab to="/rabbit">
-        Rabbit
-      </v-tab>
-      <v-tab>
-        Other
-      </v-tab>
-      <v-tab>
-        Settings
-      </v-tab>
-      <v-tab>
-        About
-      </v-tab>
-    </v-tabs>
+  <v-app>
     <v-main>
+      <toaster />
+      <v-tabs
+        fixed-tabs
+        background-color="indigo"
+        dark
+      >
+        <v-tab to="/shell">
+          Shell
+        </v-tab>
+        <v-tab to="/rabbit">
+          Rabbit
+        </v-tab>
+        <v-tab>
+          Other
+        </v-tab>
+        <v-tab>
+          Settings
+        </v-tab>
+        <v-tab>
+          About
+        </v-tab>
+      </v-tabs>
       <router-view></router-view>
     </v-main>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -43,7 +42,4 @@ export default {
 </script>
 
 <style>
-  .main {
-    padding: 20px;
-  }
 </style>
