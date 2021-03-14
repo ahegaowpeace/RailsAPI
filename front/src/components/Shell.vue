@@ -1,11 +1,11 @@
 <template>
-  <v-form>
-    <v-row
-      class="arg-row"
-    >
+  <v-form
+    class="pa-5"
+  >
+    <v-row>
       <v-col
         cols="6"
-        md="2"
+        md="4"
       >
         <v-text-field
           v-model="fileName"
@@ -15,7 +15,7 @@
       </v-col>
       <v-col
         cols="6"
-        md="2"
+        md="4"
       >
         <v-text-field
           v-model="baseUrl"
@@ -25,7 +25,7 @@
       </v-col>
       <v-col
         cols="6"
-        md="2"
+        md="4"
       >
         <v-text-field
           v-model="pageNum"
@@ -57,6 +57,12 @@
     },
     methods: {
       excecuteShellScript: function () {
+        const payload = {
+          status: 199,
+          message: 'Start!'
+        }
+        this.$store.dispatch('SystemMessageStore/createMessage', payload)
+
         const query = {
           arguments: {
             file_name: this.fileName,
@@ -66,18 +72,17 @@
         }
         axios.patch('http://192.168.3.7:3001/api/image_scrayping', query)
           .then((response) => {
+            const payload = {
+              status: response.status,
+              message: 'Success'
+            }
+            this.$store.dispatch('SystemMessageStore/createMessage', payload)
             console.log(response);
           })
           .catch((error) => {
             console.log(error)
           })
-      }
+      },
     }
   }
 </script>
-
-<style>
-  .arg-row {
-    margin: 0 auto;
-  }
-</style>
